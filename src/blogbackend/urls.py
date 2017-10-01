@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from usermanagement.views import checkUsername
-from usermanagement.views import checkUseremail
+from usermanagement.views import check_username
+from usermanagement.views import check_useremail
 
 urlpatterns = [
-   url(r'^check/user/name/', checkUsername),
-   url(r'^check/user/email/', checkUseremail),
+   url(r'^check/user/name/', check_username),
+   url(r'^check/user/email/', check_useremail),
 ]
