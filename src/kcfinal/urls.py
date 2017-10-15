@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from articlesmanagement.views import index
+from frontoffice.views import index
 
 from usermanagement.views import login
 from usermanagement.views import auth_view
