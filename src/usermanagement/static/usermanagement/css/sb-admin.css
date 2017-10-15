@@ -348,9 +348,11 @@ footer.sticky-footer {
 .msg .ok {
   color: green;
   text-align: center;
+  padding: 20px;
 }
 
 .msg .error {
   color: red;
   text-align: center;
+  padding: 20px;
 }
