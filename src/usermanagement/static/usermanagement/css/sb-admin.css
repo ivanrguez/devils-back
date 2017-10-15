@@ -344,3 +344,13 @@ footer.sticky-footer {
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
     width: calc(100% - 55px); } }
+
+.msg .ok {
+  color: green;
+  text-align: center;
+}
+
+.msg .error {
+  color: red;
+  text-align: center;
+}

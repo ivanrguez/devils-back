@@ -2,7 +2,6 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponseRedirect
-from django.shortcuts import render_to_response
 from django.contrib import auth
 from django.template import RequestContext
 
@@ -14,15 +13,12 @@ logger = logging.getLogger(__name__)
 
 
 def login(request):
-    c = {}
-    return render(request, "login.html", c)
+    return render(request, "login.html")
 
 
 def auth_view(request):
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
-    logger.info("---------------------------------------------------- username = " + username)
-    logger.info("---------------------------------------------------- password = " + password)
     user = auth.authenticate(username=username, password=password)
 
     if user is None:
@@ -34,12 +30,15 @@ def auth_view(request):
 
 def logout(request):
     auth.logout(request)
-    return render_to_response('logout.html')
+    context = {"msg": {"ok": "Logged out correctly, see you soon ;)"}}
+    return render(request, 'login.html', context)
 
 
 def loggedin(request):
-    return render_to_response('loggedin.html')
+    context = {"logged": True}
+    return render(request, 'index.html', context)
 
 
 def invalid_login(request):
-    return render_to_response('invalid.html')
+    context = {"msg": {"error": "User or password invalid!"}}
+    return render(request, 'login.html', context)
